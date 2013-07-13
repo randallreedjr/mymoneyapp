@@ -41,9 +41,9 @@ group :test do
 end
 
 group :production do
-	#gem 'mysql2', '0.3.11'
-	gem 'thin'
-	gem 'pg'
+	gem 'mysql2', '0.3.11'
+	#gem 'thin'
+	#gem 'pg'
 end
 
 # To use ActiveModel has_secure_password
