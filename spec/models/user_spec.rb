@@ -12,8 +12,11 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(name: "Example User", email: "user@example.com", 
-  							password: "foobar12", password_confirmation: "foobar12") }
+  before do
+    @user = User.new(name: "Example User", email: "user@example.com", 
+  							     password: "foobar12", password_confirmation: "foobar12")
+  end
+  
   subject { @user }
 
   it { should respond_to(:name) }
