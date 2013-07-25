@@ -10,13 +10,18 @@ describe "Static pages" do
     end
 
 	describe "Home page" do
+		let(:user) { FactoryGirl.create(:user) }
 		before { visit root_path }
+
 		let(:heading) { 'Money Garden'}
 		let(:page_title) { '' }
 
 		it_should_behave_like "all static pages"
     	it { should_not have_selector 'title', text: '| Home' }
+    	it { should_not have_link 'Profile', href: user_path(user) }
+    	it { should_not have_link 'Settings', href: edit_user_path(user) }
   	end
+
 
 
 	describe "Help page" do
