@@ -126,4 +126,14 @@ describe User do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
   end
+
+  describe "admin mass assignment" do
+    it "should not allow access to admin" do
+      expect do
+        User.new(name: "Admin", email: "admin@test.com", 
+                 password: "admin123", password_confirmation: "admin123", 
+                 admin: true)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
+    end
+  end
 end
