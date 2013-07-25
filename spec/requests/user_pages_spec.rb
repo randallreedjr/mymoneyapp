@@ -40,18 +40,15 @@ describe "User pages" do
           visit users_path
         end
 
+        it "should not be able to delete self" do
+            expect { delete user_path(admin) }.to_not change(User, :count)
+        end
+
         it { should have_link('delete', href: user_path(User.first)) }
         it "should be able to delete another user" do
           expect { click_link('delete') }.to change(User, :count).by(-1)
         end
         it { should_not have_link('delete', href: user_path(admin)) }
-
-        describe "delete self" do
-          before do
-            visit destroy_users_path(admin)
-            it { should have_selector('div','notice') }
-          end
-        end
       end
     end
   end
