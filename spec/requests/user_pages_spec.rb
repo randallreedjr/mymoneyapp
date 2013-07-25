@@ -84,7 +84,7 @@ describe "User pages" do
         fill_in "Name", with: "Example User"
         fill_in "Email", with: "user@example.com"
         fill_in "Password", with: "password1"
-        fill_in "Confirmation", with: "password1"
+        fill_in "Confirm Password", with: "password1"
       end
 
       describe "after saving the user" do
