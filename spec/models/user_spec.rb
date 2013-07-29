@@ -138,4 +138,21 @@ describe User do
       end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
+
+  describe "micropost associations" do
+    before { @user.save }
+    let!(:first_account) do
+      FactoryGirl.create(:account, user: @user, balance: 101, 
+                        bank_name: "Bank 1", nickname: "High Balance")
+    end
+
+    let!(:second_account) do
+      FactoryGirl.create(:account, user: @user, balance: 202,
+                        bank_name: "Bank 2", nickname: "Low Balance")
+    end
+
+    it "should have the right accounts in the right order" do
+      @user.accounts.should == [second_account, first_account]
+    end
+  end
 end

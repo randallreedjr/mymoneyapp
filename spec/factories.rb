@@ -9,4 +9,12 @@ FactoryGirl.define do
 			admin true
 		end
 	end
+
+	factory :account do
+		bank_name "Bank of Test"
+		sequence(:account_num) { |n| "#{n}"}
+		sequence(:nickname) { |n| "Account #{n}" }
+		#sequence(:balance) { |n| "#{n*100+n}" }
+		user
+	end
 end
