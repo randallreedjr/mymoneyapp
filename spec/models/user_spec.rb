@@ -139,7 +139,7 @@ describe User do
     end
   end
 
-  describe "micropost associations" do
+  describe "account associations" do
     before { @user.save }
     let!(:first_account) do
       FactoryGirl.create(:account, user: @user, balance: 101, 
@@ -153,6 +153,15 @@ describe User do
 
     it "should have the right accounts in the right order" do
       @user.accounts.should == [second_account, first_account]
+    end
+
+    it "should destroy associated accounts" do
+      accounts = @user.accounts.dup
+      @user.destroy
+      accounts.should_not be_empty
+      accounts.each do |account|
+        Account.find_by_id(account.id).should be_nil
+      end
     end
   end
 end
