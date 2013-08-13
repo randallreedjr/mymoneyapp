@@ -30,4 +30,37 @@ describe Account do
   	before { @account.user_id = nil }
   	it { should_not be_valid }
   end
+
+  describe "with blank bank name" do
+    before { @account.bank_name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with blank account number" do
+    before { @account.account_num = " " }
+    it { should_not be_valid }
+  end
+
+  describe "with blank nickname" do
+    before { @account.nickname = " " }
+    it { should be_valid }
+  end
+  #TO DO: Add tests for maximum string length
+
+  describe "with negative balance" do
+    before { @account.balance = -1052.73 }
+    it { should be_valid }
+  end
+
+  describe "with zero balance" do
+    before { @account.balance = 0 }
+    it { should be_valid }
+  end
+
+  describe "with positive balance" do
+    before { @account.balance = 105648.12 }
+    it { should be_valid }
+  end
+
+  #TO DO: Add edge case tests to balance
 end
