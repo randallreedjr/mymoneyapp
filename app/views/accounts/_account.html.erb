@@ -1,0 +1,8 @@
+<li>
+	<span class="bankname"><%= account.bank_name %></span>
+	<span class="accountnum"><%= account.account_num %></span>
+	<span class="balance">Balance: <%= account.balance %></span>
+	<span class="timestamp">
+		Updated <%= time_ago_in_words(account.updated_at) %> ago.
+	</span>
+</li>
