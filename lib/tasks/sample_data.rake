@@ -16,5 +16,15 @@ namespace :db do
 						 password: password,
 						 password_confirmation: password)
 		end
+
+		users = User.all(limit: 6)
+		10.times do |n|
+			account_num = "#{n+1}"
+			balance = 111*n
+			bank_name = "Bank #{n+1}"
+			users.each { |user| user.accounts.create!(account_num: account_num, 
+														bank_name: bank_name, 
+														balance: balance) }
+		end
 	end
 end
