@@ -139,7 +139,32 @@ aside {
 	}
 }
 
+.networthneg {
+	font-size: 1.2em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: left;
+	font-weight: normal;
+	color: $red;
+}
 
+.networthzero {
+	font-size: 1.2em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: left;
+	font-weight: normal;
+	color: $grayLight;
+}
+
+.networthpos {
+	font-size: 1.2em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	text-align: left;
+	font-weight: normal;
+	color: $green;
+}
 
 .gravatar {
 	float: left;
@@ -205,6 +230,10 @@ input {
 		padding: 10px 0;
 		border-top: 1px solid #e8e8e8;
 	}
+}
+
+.bankname {
+	font-weight:bold;
 }
 
 .balance {
