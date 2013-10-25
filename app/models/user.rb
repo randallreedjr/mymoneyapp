@@ -33,6 +33,10 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def networth
+    self.accounts.sum(:balance)
+  end
+
   private
   	def create_remember_token
   		self.remember_token = SecureRandom.urlsafe_base64
