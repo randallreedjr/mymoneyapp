@@ -17,11 +17,11 @@
 					<% else %>
 						<span class="networthzero">
 					<% end %>
-					Net worth: <% to_dollar(@user.networth) %>
+					Net worth: <%= number_to_currency(@user.networth) %>
 
 				<% else %>
 					<span class="networthzero">
-						Net worth: <% to_dollar(0) %>
+						Net worth: <%= number_to_currency(0) %>
 				<% end %>
 			</span>
 		</section>
