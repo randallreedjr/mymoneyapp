@@ -24,7 +24,7 @@ describe "Account pages" do
 		describe "with valid information" do
 
 			before { fill_in 'account_account_num', with: "0001" }
-			before { fill_in 'account_bankname', with: "Test Bank" }
+			before { fill_in 'account_bank_name', with: "Test Bank" }
 			before { fill_in 'account_balance', with: 100 }
 			it "should create an account" do
 				expect { click_button "Post" }.to change(Account, :count).by(1)
